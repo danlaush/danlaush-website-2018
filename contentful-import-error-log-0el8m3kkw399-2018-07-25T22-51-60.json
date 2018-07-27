@@ -1,0 +1,792 @@
+[
+  {
+    "ts": "2018-07-25T12:51:26.694Z",
+    "level": "error",
+    "error": {
+      "name": "BadRequest",
+      "entity": {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "28p9vvm1oxuw"
+            }
+          },
+          "id": "person",
+          "type": "ContentType",
+          "createdAt": "2017-05-11T12:04:23.540Z",
+          "updatedAt": "2017-05-18T14:04:51.650Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "066RqBikAjzKy0SWUEtFvH"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "2AAFsI4st4sZPlF1LFT13q"
+            }
+          },
+          "publishedCounter": 7,
+          "version": 14,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "2AAFsI4st4sZPlF1LFT13q"
+            }
+          },
+          "publishedVersion": 13,
+          "firstPublishedAt": "2017-05-11T12:04:23.869Z",
+          "publishedAt": "2017-05-18T14:04:51.628Z"
+        },
+        "displayField": "name",
+        "name": "Person",
+        "description": "",
+        "fields": [
+          {
+            "id": "name",
+            "name": "Name",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "title",
+            "name": "Title",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "company",
+            "name": "Company",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "shortBio",
+            "name": "Short Bio",
+            "type": "Text",
+            "localized": false,
+            "required": true,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "email",
+            "name": "Email",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "phone",
+            "name": "Phone",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "facebook",
+            "name": "Facebook",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "twitter",
+            "name": "Twitter",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "github",
+            "name": "Github",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "image",
+            "name": "Image",
+            "type": "Link",
+            "localized": false,
+            "required": false,
+            "validations": [
+            ],
+            "disabled": false,
+            "omitted": false,
+            "linkType": "Asset"
+          }
+        ]
+      },
+      "data": {
+        "status": 400,
+        "statusText": "Bad Request",
+        "message": "You need to omit a field before deleting it",
+        "details": {
+        },
+        "request": {
+          "url": "https://api.contentful.com:443/spaces/0el8m3kkw399/environments/master/content_types/person",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.0.4; sdk contentful-management.js/5.2.1; platform node.js/v10.4.1; os macOS/17.7.0;",
+            "Authorization": "Bearer ...811cc",
+            "user-agent": "node.js/v10.4.1",
+            "Accept-Encoding": "gzip",
+            "X-Contentful-Version": 4,
+            "Content-Length": 1409
+          },
+          "method": "put",
+          "payloadData": "{\"displayField\":\"name\",\"name\":\"Person\",\"description\":\"\",\"fields\":[{\"id\":\"name\",\"name\":\"Name\",\"type\":\"Symbol\",\"localized\":false,\"required\":true,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"title\",\"name\":\"Title\",\"type\":\"Symbol\",\"localized\":false,\"required\":true,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"company\",\"name\":\"Company\",\"type\":\"Symbol\",\"localized\":false,\"required\":true,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"shortBio\",\"name\":\"Short Bio\",\"type\":\"Text\",\"localized\":false,\"required\":true,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"email\",\"name\":\"Email\",\"type\":\"Symbol\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"phone\",\"name\":\"Phone\",\"type\":\"Symbol\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"facebook\",\"name\":\"Facebook\",\"type\":\"Symbol\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"twitter\",\"name\":\"Twitter\",\"type\":\"Symbol\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"github\",\"name\":\"Github\",\"type\":\"Symbol\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false},{\"id\":\"image\",\"name\":\"Image\",\"type\":\"Link\",\"localized\":false,\"required\":false,\"validations\":[],\"disabled\":false,\"omitted\":false,\"linkType\":\"Asset\"}]}"
+        },
+        "requestId": "e9cf97178d4e56f8ee5407206b97332d"
+      }
+    }
+  },
+  {
+    "ts": "2018-07-25T12:51:44.791Z",
+    "level": "error",
+    "error": {
+      "name": "UnknownField",
+      "entity": {
+        "original": {
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "28p9vvm1oxuw"
+              }
+            },
+            "id": "15jwOBqpxqSAOy2eOO4S0m",
+            "type": "Entry",
+            "createdAt": "2017-05-11T12:04:29.532Z",
+            "updatedAt": "2017-05-18T14:13:14.463Z",
+            "createdBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "066RqBikAjzKy0SWUEtFvH"
+              }
+            },
+            "updatedBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2AAFsI4st4sZPlF1LFT13q"
+              }
+            },
+            "publishedCounter": 15,
+            "version": 190,
+            "publishedBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2AAFsI4st4sZPlF1LFT13q"
+              }
+            },
+            "publishedVersion": 189,
+            "firstPublishedAt": "2017-05-11T12:06:33.065Z",
+            "publishedAt": "2017-05-18T14:13:14.431Z",
+            "contentType": {
+              "sys": {
+                "type": "Link",
+                "linkType": "ContentType",
+                "id": "person"
+              }
+            }
+          },
+          "fields": {
+            "name": {
+              "en-US": "John Doe"
+            },
+            "title": {
+              "en-US": "Web Developer"
+            },
+            "company": {
+              "en-US": "ACME"
+            },
+            "shortBio": {
+              "en-US": "Research and recommendations for modern stack websites."
+            },
+            "email": {
+              "en-US": "john@doe.com"
+            },
+            "phone": {
+              "en-US": "0176 / 1234567"
+            },
+            "facebook": {
+              "en-US": "johndoe"
+            },
+            "twitter": {
+              "en-US": "johndoe"
+            },
+            "github": {
+              "en-US": "johndoe"
+            },
+            "image": {
+              "en-US": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Asset",
+                  "id": "7orLdboQQowIUs22KAW4U"
+                }
+              }
+            }
+          }
+        },
+        "transformed": {
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "28p9vvm1oxuw"
+              }
+            },
+            "id": "15jwOBqpxqSAOy2eOO4S0m",
+            "type": "Entry",
+            "createdAt": "2017-05-11T12:04:29.532Z",
+            "updatedAt": "2017-05-18T14:13:14.463Z",
+            "createdBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "066RqBikAjzKy0SWUEtFvH"
+              }
+            },
+            "updatedBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2AAFsI4st4sZPlF1LFT13q"
+              }
+            },
+            "publishedCounter": 15,
+            "version": 190,
+            "publishedBy": {
+              "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2AAFsI4st4sZPlF1LFT13q"
+              }
+            },
+            "publishedVersion": 189,
+            "firstPublishedAt": "2017-05-11T12:06:33.065Z",
+            "publishedAt": "2017-05-18T14:13:14.431Z",
+            "contentType": {
+              "sys": {
+                "type": "Link",
+                "linkType": "ContentType",
+                "id": "person"
+              }
+            }
+          },
+          "fields": {
+            "name": {
+              "en-US": "John Doe"
+            },
+            "title": {
+              "en-US": "Web Developer"
+            },
+            "company": {
+              "en-US": "ACME"
+            },
+            "shortBio": {
+              "en-US": "Research and recommendations for modern stack websites."
+            },
+            "email": {
+              "en-US": "john@doe.com"
+            },
+            "phone": {
+              "en-US": "0176 / 1234567"
+            },
+            "facebook": {
+              "en-US": "johndoe"
+            },
+            "twitter": {
+              "en-US": "johndoe"
+            },
+            "github": {
+              "en-US": "johndoe"
+            },
+            "image": {
+              "en-US": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Asset",
+                  "id": "7orLdboQQowIUs22KAW4U"
+                }
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "status": 422,
+        "statusText": "Unprocessable Entity",
+        "message": "No field with id \"title\" found.",
+        "details": {
+          "errors": [
+            {
+              "name": "unknown",
+              "path": [
+                "fields",
+                "title"
+              ]
+            }
+          ]
+        },
+        "request": {
+          "url": "https://api.contentful.com:443/spaces/0el8m3kkw399/environments/master/entries/15jwOBqpxqSAOy2eOO4S0m",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.0.4; sdk contentful-management.js/5.2.1; platform node.js/v10.4.1; os macOS/17.7.0;",
+            "Authorization": "Bearer ...811cc",
+            "user-agent": "node.js/v10.4.1",
+            "Accept-Encoding": "gzip",
+            "X-Contentful-Content-Type": "person",
+            "Content-Length": 428
+          },
+          "method": "put",
+          "payloadData": "{\"fields\":{\"name\":{\"en-US\":\"John Doe\"},\"title\":{\"en-US\":\"Web Developer\"},\"company\":{\"en-US\":\"ACME\"},\"shortBio\":{\"en-US\":\"Research and recommendations for modern stack websites.\"},\"email\":{\"en-US\":\"john@doe.com\"},\"phone\":{\"en-US\":\"0176 / 1234567\"},\"facebook\":{\"en-US\":\"johndoe\"},\"twitter\":{\"en-US\":\"johndoe\"},\"github\":{\"en-US\":\"johndoe\"},\"image\":{\"en-US\":{\"sys\":{\"type\":\"Link\",\"linkType\":\"Asset\",\"id\":\"7orLdboQQowIUs22KAW4U\"}}}}}"
+        },
+        "requestId": "9620defd2057b5ff980eef9688f277da"
+      }
+    }
+  },
+  {
+    "ts": "2018-07-25T12:51:48.789Z",
+    "level": "error",
+    "error": {
+      "name": "UnresolvedLinks",
+      "entity": {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "0el8m3kkw399"
+            }
+          },
+          "id": "31TNnjHlfaGUoMOwU0M2og",
+          "type": "Entry",
+          "createdAt": "2018-07-25T12:51:44.702Z",
+          "updatedAt": "2018-07-25T12:51:44.702Z",
+          "environment": {
+            "sys": {
+              "id": "master",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "version": 1,
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "blogPost"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "Automate with webhooks"
+          },
+          "slug": {
+            "en-US": "automate-with-webhooks"
+          },
+          "heroImage": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "4shwYI3POEGkw0Eg6kcyaQ"
+              }
+            }
+          },
+          "description": {
+            "en-US": "Webhooks notify you, another person or system when resources have changed by calling a given HTTP endpoint."
+          },
+          "body": {
+            "en-US": "## What are webhooks?\n\nThe webhooks are used to notify you when content has been changed. Specify a URL, configure your webhook, and we will send an HTTP POST request whenever something happens to your content.\n\n## How do I configure a webhook?\n\nGo to Settings → Webhooks from the navigation bar at the top. From there, hit Add webhook, and you will be directed to your new webhook. Then choose a name, put in the information of your HTTP endpoint (URL and authentication), specify any custom headers and select the types of events that should trigger the webhook.\n\n## Why do I get an old version in the CDA?\n\nAs the delivery API is powered by a CDN network consisting of hundreds of servers distributed across continents, it takes some time (up to a few minutes) to reflect the changes to the published content. This must be taken into consideration when reacting to webhooks. In normal conditions, there could be a reasonable delay of 2 to 5 minutes.\n\nExtracted from the [Webhooks FAQ](https://www.contentful.com/faq/webhooks/ \"Webhooks FAQ\")."
+          },
+          "author": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              }
+            }
+          },
+          "publishDate": {
+            "en-US": "2017-05-12T00:00+02:00"
+          },
+          "tags": {
+            "en-US": [
+              "javascript"
+            ]
+          }
+        }
+      },
+      "data": {
+        "status": 422,
+        "statusText": "Unprocessable Entity",
+        "message": "Validation error",
+        "details": {
+          "errors": [
+            {
+              "name": "notResolvable",
+              "link": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              },
+              "path": [
+                "fields",
+                "author",
+                "en-US"
+              ]
+            }
+          ]
+        },
+        "request": {
+          "url": "https://api.contentful.com:443/spaces/0el8m3kkw399/environments/master/entries/31TNnjHlfaGUoMOwU0M2og/published",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.0.4; sdk contentful-management.js/5.2.1; platform node.js/v10.4.1; os macOS/17.7.0;",
+            "Authorization": "Bearer ...811cc",
+            "user-agent": "node.js/v10.4.1",
+            "Accept-Encoding": "gzip",
+            "X-Contentful-Version": 1
+          },
+          "method": "put",
+          "payloadData": null
+        },
+        "requestId": "05aeb2eaba4c6db50a8bb455ffd618e5"
+      }
+    }
+  },
+  {
+    "ts": "2018-07-25T12:51:49.158Z",
+    "level": "error",
+    "error": {
+      "name": "UnresolvedLinks",
+      "entity": {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "0el8m3kkw399"
+            }
+          },
+          "id": "2PtC9h1YqIA6kaUaIsWEQ0",
+          "type": "Entry",
+          "createdAt": "2018-07-25T12:51:44.689Z",
+          "updatedAt": "2018-07-25T12:51:44.689Z",
+          "environment": {
+            "sys": {
+              "id": "master",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "version": 1,
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "blogPost"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "Static sites are great"
+          },
+          "slug": {
+            "en-US": "static-sites-are-great"
+          },
+          "heroImage": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "4NzwDSDlGECGIiokKomsyI"
+              }
+            }
+          },
+          "description": {
+            "en-US": "Worry less about security, caching, and talking to the server. Static sites are the new thing."
+          },
+          "body": {
+            "en-US": "## The case for the static site generator\n\nMore and more developers are jumping on the \"go static train\", and rightfully so. Static pages are fast, lightweight, they scale well. They are more secure, and simple to maintain and they allow you to focus all your time and effort on the user interface. Often times, this dedication really shows.\n\nIt just so happens that static site generators are mostly loved by developers, but not by the average Joe. They do not offer WYSIWYG, previewing on demo sites may take an update cycle, they are often based on markdown text files, and they require some knowledge of modern day repositories.\n\nMoreover, when teams are collaborating, it can get complicated quickly. Has this article already been proof-read or reviewed? Is this input valid? Are user permissions available, e.g. for administering adding and removing team members? Can this article be published at a future date? How can a large repository of content be categorized, organized, and searched? All these requirements have previously been more or less solved within the admin area of your CMS. But of course with all the baggage that made you leave the appserver-app-database-in-one-big-blob stack in the first place.\n\n## Content APIs to the rescue\n\nAn alternative is decoupling the content management aspect from the system. And then replacing the maintenance prone server with a cloud based web service offering. Effectively, instead of your CMS of old, you move to a [Content Management as a Service (CMaaS)](https://www.contentful.com/r/knowledgebase/content-as-a-service/ \"Content Management as a Service (CMaaS)\") world, with a content API to deliver all your content. That way, you get the all the [benefits of content management features](http://www.digett.com/blog/01/16/2014/pairing-static-websites-cms \"benefits of content management features\") while still being able to embrace the static site generator mantra.\n\nIt so happens that Contentful is offering just that kind of content API. A service that\n\n* from the ground up has been designed to be fast, scalable, secure, and offer high uptime, so that you don’t have to worry about maintenance ever again.\n* offers a powerful editor and lots of flexibility in creating templates for your documents that your editors can reuse and combine, so that no developers resources are required in everyday writing and updating tasks.\n* separates content from presentation, so you can reuse your content repository for any device platform your heart desires. That way, you can COPE (\"create once, publish everywhere\").\n* offers webhooks that you can use to rebuild your static site in a fully automated fashion every time your content is modified.\n\nExtracted from the article [CMS-functionality for static site generators](https://www.contentful.com/r/knowledgebase/contentful-api-cms-static-site-generators/ \"CMS-functionality for static site generators\"). Read more about the [static site generators supported by Contentful](https://www.contentful.com/developers/docs/tools/staticsitegenerators/ \"static site generators supported by Contentful\")."
+          },
+          "author": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              }
+            }
+          },
+          "publishDate": {
+            "en-US": "2017-05-16T00:00+02:00"
+          },
+          "tags": {
+            "en-US": [
+              "javascript",
+              "static-sites"
+            ]
+          }
+        }
+      },
+      "data": {
+        "status": 422,
+        "statusText": "Unprocessable Entity",
+        "message": "Validation error",
+        "details": {
+          "errors": [
+            {
+              "name": "notResolvable",
+              "link": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              },
+              "path": [
+                "fields",
+                "author",
+                "en-US"
+              ]
+            }
+          ]
+        },
+        "request": {
+          "url": "https://api.contentful.com:443/spaces/0el8m3kkw399/environments/master/entries/2PtC9h1YqIA6kaUaIsWEQ0/published",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.0.4; sdk contentful-management.js/5.2.1; platform node.js/v10.4.1; os macOS/17.7.0;",
+            "Authorization": "Bearer ...811cc",
+            "user-agent": "node.js/v10.4.1",
+            "Accept-Encoding": "gzip",
+            "X-Contentful-Version": 1
+          },
+          "method": "put",
+          "payloadData": null
+        },
+        "requestId": "f7751c155afe24c854ed84ec182d1733"
+      }
+    }
+  },
+  {
+    "ts": "2018-07-25T12:51:49.576Z",
+    "level": "error",
+    "error": {
+      "name": "UnresolvedLinks",
+      "entity": {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "0el8m3kkw399"
+            }
+          },
+          "id": "3K9b0esdy0q0yGqgW2g6Ke",
+          "type": "Entry",
+          "createdAt": "2018-07-25T12:51:45.083Z",
+          "updatedAt": "2018-07-25T12:51:45.083Z",
+          "environment": {
+            "sys": {
+              "id": "master",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "0sBi5K91cO8M9pAsJPJOaO"
+            }
+          },
+          "version": 1,
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "blogPost"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "Hello world"
+          },
+          "slug": {
+            "en-US": "hello-world"
+          },
+          "heroImage": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "6Od9v3wzLOysiMum0Wkmme"
+              }
+            }
+          },
+          "description": {
+            "en-US": "Your very first content with Contentful, pulled in JSON format using the Content Delivery API."
+          },
+          "body": {
+            "en-US": "These is your very first content with Contentful, pulled in JSON format using the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ \"Content Delivery API\"). Content and presentation are now decoupled, allowing you to focus your efforts in building the perfect app.\n\n## Your first steps\n\nBuilding with Contentful is easy. First take a moment to get [the basics of content modelling](https://www.contentful.com/r/knowledgebase/content-modelling-basics/ \"the basics of content modelling\"), which you can set up in the [Contentful Web app](https://app.contentful.com/ \"Contentful Web app\"). Once you get that, feel free to drop by the [Documentation](https://www.contentful.com/developers/docs/ \"Documentation\") to learn a bit more about how to build your app with Contentful, in particular the [API basics](https://www.contentful.com/developers/docs/concepts/apis/ \"API basics\") and each one of our four APIs, as shown below.\n\n### Content Delivery API\n\nThe [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ \"Content Delivery API\") (CDA), available at `cdn.contentful.com`, is a read-only API for delivering content from Contentful to apps, websites and other media. Content is delivered as JSON data, and images, videos and other media as files.\nThe API is available via a globally distributed content delivery network. The server closest to the user serves all content, both JSON and binary. This minimizes latency, which especially benefits mobile apps. Hosting content in multiple global data centers also greatly improves the availability of content.\n\n### Content Management API\n\nThe [Content Management API](https://www.contentful.com/developers/docs/references/content-management-api/ \"Content Management API\") (CMA), available at `api.contentful.com`, is a read-write API for managing content. Unlike the Content Delivery API, the management API requires you to authenticate as a Contentful user. You could use the CMA for several use cases, such as:\n* Automatic imports from different CMSes like WordPress or Drupal.\n* Integration with other backend systems, such as an e-commerce shop.\n* Building custom editing experiences. We built the [Contentful Web app](https://app.contentful.com/ \"Contentful Web app\") on top of this API.\n\n### Preview API\n\nThe [Content Preview API](https://www.contentful.com/developers/docs/concepts/apis/#content-preview-api \"Content Preview API\"), available at `preview.contentful.com`, is a variant of the CDA for previewing your content before delivering it to your customers. You use the Content Preview API in combination with a \"preview\" deployment of your website (or a \"preview\" build of your mobile app) that allows content managers and authors to view their work in-context, as if it were published, using a \"preview\" access token as though it were delivered by the CDA.\n\n### Images API\n\nThe [Images API](https://www.contentful.com/developers/docs/concepts/apis/#images-api \"Images API\"), available at `images.contentful.com`, allows you to resize and crop images, change their background color and convert them to different formats. Using our API for these transformations lets you upload high-quality assets, deliver exactly what your app needs, and still get all the benefits of our caching CDN."
+          },
+          "author": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              }
+            }
+          },
+          "publishDate": {
+            "en-US": "2017-05-15T00:00+02:00"
+          },
+          "tags": {
+            "en-US": [
+              "general"
+            ]
+          }
+        }
+      },
+      "data": {
+        "status": 422,
+        "statusText": "Unprocessable Entity",
+        "message": "Validation error",
+        "details": {
+          "errors": [
+            {
+              "name": "notResolvable",
+              "link": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "15jwOBqpxqSAOy2eOO4S0m"
+              },
+              "path": [
+                "fields",
+                "author",
+                "en-US"
+              ]
+            }
+          ]
+        },
+        "request": {
+          "url": "https://api.contentful.com:443/spaces/0el8m3kkw399/environments/master/entries/3K9b0esdy0q0yGqgW2g6Ke/published",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.0.4; sdk contentful-management.js/5.2.1; platform node.js/v10.4.1; os macOS/17.7.0;",
+            "Authorization": "Bearer ...811cc",
+            "user-agent": "node.js/v10.4.1",
+            "Accept-Encoding": "gzip",
+            "X-Contentful-Version": 1
+          },
+          "method": "put",
+          "payloadData": null
+        },
+        "requestId": "8c2fe2a986e561a322d0208089880de5"
+      }
+    }
+  },
+  {
+    "ts": "2018-07-25T12:51:49.577Z",
+    "level": "error",
+    "error": "Could not publish the following entities: Automate with webhooks (31TNnjHlfaGUoMOwU0M2og), Hello world (3K9b0esdy0q0yGqgW2g6Ke), Static sites are great (2PtC9h1YqIA6kaUaIsWEQ0)"
+  }
+]
