@@ -15,6 +15,7 @@ class RootIndex extends React.Component {
         <div className="wrapper">
           <h1>{person.name}</h1>
           <ul>
+            <li>{person.title}</li>
             <li>
               <Link to={`/about`}>
                 About <span className="sr-only">{person.name}</span>
@@ -58,6 +59,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     contentfulPerson {
       name
+      title
       twitter
       email
     }
