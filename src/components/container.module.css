@@ -1,3 +1,15 @@
 .container {
-    max-width: 400px;
+    max-width: 600px;
+    margin-left: 5%;
+    /* border: 1px solid black; */
+}
+
+@media(min-width: 500px) {
+    .container {
+        margin-left: calc(5% + 15vw);
+    }
+}
+
+.container > *:first-child {
+    padding-top: 20%;
 }

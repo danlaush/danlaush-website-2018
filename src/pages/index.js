@@ -15,25 +15,23 @@ class RootIndex extends React.Component {
         <div className="wrapper">
           <h1>{person.name}</h1>
           <ul>
-              <li>
-                <Link to={`/about`}>
-                  About <span className="sr-only">{person.name}</span>
-                </Link>
-              </li>
-              <li>
-                  <a 
-                      href={`https://twitter.com/${person.twitter}`}>
-                      <span className="sr-only">Twitter link: </span>
-                      {person.twitter}
-                  </a>
-              </li>
-              <li>
-                  <a 
-                      href={`mailto:${person.email}`}>
-                      <span className="sr-only">Email link: </span>
-                      {person.email}
-                  </a>
-              </li>
+            <li>
+              <Link to={`/about`}>
+                About <span className="sr-only">{person.name}</span>
+              </Link>
+            </li>
+            <li>
+              <a href={`https://twitter.com/${person.twitter}`}>
+                <span className="sr-only">Twitter link: </span>
+                {person.twitter}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${person.email}`}>
+                <span className="sr-only">Email link: </span>
+                {person.email}
+              </a>
+            </li>
           </ul>
           <h2>Things</h2>
           <ul>
@@ -59,9 +57,9 @@ export default RootIndex
 export const pageQuery = graphql`
   query HomeQuery {
     contentfulPerson {
-        name
-        twitter
-        email
+      name
+      twitter
+      email
     }
   }
 `
