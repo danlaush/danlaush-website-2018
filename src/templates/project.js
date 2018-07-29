@@ -15,7 +15,7 @@ class ProjectTemplate extends React.Component {
         <Helmet title={`${project.title}`} />
         <div className="wrapper">
           <h1 className="section-headline">{project.title}</h1>
-          <p>&laquo; <Link to="/projects">Projects</Link></p>
+          <p>&laquo; <Link to={`/projects`}>Projects</Link></p>
           <div
             dangerouslySetInnerHTML={{
               __html: project.body.childMarkdownRemark.html,

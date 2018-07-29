@@ -12,7 +12,7 @@ class ProjectsPage extends React.Component {
       <div>
         <Helmet title="Projects" />
         <h1>{name}</h1>
-        <p>&laquo; <Link to="/">Home</Link></p>
+        <p>&laquo; <Link to={`/`}>Home</Link></p>
         <ul>
           {projects.map(({node}) => {
             return (
