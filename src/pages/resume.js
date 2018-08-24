@@ -41,7 +41,7 @@ export const pageQuery = graphql`
     contentfulPerson {
       name
     }
-    allContentfulRole {
+    allContentfulRole(sort: {fields: [endDate], order:DESC}) {
       edges {
         node {
           entryTitle

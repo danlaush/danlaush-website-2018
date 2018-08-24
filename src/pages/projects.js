@@ -40,7 +40,7 @@ export const pageQuery = graphql`
     contentfulPerson {
       name
     }
-    allContentfulProject {
+    allContentfulProject(sort: {fields: [endDate], order:DESC}) {
       edges {
         node {
           title
