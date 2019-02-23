@@ -1,0 +1,35 @@
+import React from 'react'
+
+class TagToggle extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      active: false,
+    }
+  }
+
+  update() {
+    const newActive = !this.state.active
+    this.props.update(this.props.id, newActive)
+    this.setState({
+      active: newActive
+    })
+  }
+
+  render() {
+    return (
+      <label htmlFor={`tag-${this.props.id}`} key={this.props.id}>
+        <input
+          type="checkbox"
+          id={`tag-${this.props.id}`}
+          name={this.props.id}
+          onClick={this.update.bind(this)}
+        />
+        {this.props.name}
+      </label>
+    )
+  }
+}
+
+export default TagToggle
