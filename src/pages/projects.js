@@ -9,7 +9,6 @@ import styles from './projects.module.css'
 
 class ProjectsPage extends React.Component {
   constructor(props) {
-    console.log('projects page props', props)
     super(props);
     try {
       const {name} = get(this, 'props.data.contentfulPerson')
@@ -20,18 +19,14 @@ class ProjectsPage extends React.Component {
       const tagsArray = tagsRaw.map(({node}) => node)
       const featuredTagsArray = tagsArray.filter(i => i.featured)
 
-      // On load, figure out what tags are active based on query params
-      const activeTagsByQueryParam = new URLSearchParams(props.history.location.search).get('tags').split(',')
 
       this.state = {
         name,
         tags: featuredTagsArray.map(tag => {
-          const isTagActive = this.isTagActive(tag, activeTagsByQueryParam)
-          
           return {
             id: tag.id,
             name: tag.name,
-            active: isTagActive
+            active: false
           }
         }),
         projectsAll: projectsArray,
@@ -42,8 +37,23 @@ class ProjectsPage extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    let activeTags = []
+    const activeTagsByQueryParam = new URLSearchParams(this.props.history.location.search).get('tags')
+    if(activeTagsByQueryParam) {
+      activeTags = activeTagsByQueryParam.split(',')
+    }
+
     this.setState({
+      tags: this.state.tags.map(tag => {
+        return {
+          id: tag.id,
+          name: tag.name,
+          active: activeTags.length 
+            ? this.isTagActive(tag, activeTags)
+            : false
+        }
+      }),
       projects: this.filterProjectsByActiveTags()
     })
   }
@@ -68,39 +78,46 @@ class ProjectsPage extends React.Component {
         : tag
     })
 
-    
-
     this.setState({
       tags: tagsUpdated
     }, callback)
   }
 
+  getActiveTags() {
+    return this.state.tags.filter(i => i.active)
+  }
+
+  hasActiveTags() {
+    return !!this.getActiveTags().length
+  }
+
   handleTagsUpdate() {
-    const activeTags = this.state.tags.filter(i => i.active)
+    const activeTags = this.getActiveTags()
     const tagString = activeTags.map(i => slugify(i.name, {
       lower: true
     }))
+
     const queryParams = new URLSearchParams(this.state.queryParams)
-
-    queryParams.set('tags', tagString)
-
-    this.props.history.push({
-      pathname: '/projects',
-      search: queryParams.toString()
-    })
+    if(tagString.length) {
+      queryParams.set('tags', tagString)
+    } else {
+      queryParams.delete('tags')
+    }
+    
+    if(this.props.history) {
+      this.props.history.push({
+        pathname: '/projects',
+        search: queryParams.toString()
+      })
+    }
 
     this.updateProjects()
   }
 
-  hasActiveTags() {
-    const removeInactiveTags = this.state.tags.filter(tag => {
-      return tag.active
-    })
-    return !!removeInactiveTags.length
-  }
-
   filterProjectsByActiveTags() {
     const { projectsAll, tags } = this.state
+
+    if(!this.hasActiveTags()) return projectsAll
 
     return projectsAll.filter(project => {
       if(!project.tags) return
@@ -111,8 +128,7 @@ class ProjectsPage extends React.Component {
         return !!isTagInGlobalActiveTags.length
       })
       return !!filterProjectsWithoutMatchingTags.length
-  })
-
+    })
   }
 
   updateProjects() {
@@ -122,16 +138,7 @@ class ProjectsPage extends React.Component {
         ? this.state.projectsAll
         // If active tags, remove projects which don't have a tag
         // that matches an active tag
-        : this.state.projectsAll.filter(project => {
-          if(!project.tags) return
-          const filterProjectsWithoutMatchingTags = project.tags.filter(tag => {
-            const isTagInGlobalActiveTags = this.state.tags.filter(globalTag => {              
-              return tag.id === globalTag.id && globalTag.active
-            })
-            return !!isTagInGlobalActiveTags.length
-          })
-          return !!filterProjectsWithoutMatchingTags.length
-      })
+        : this.filterProjectsByActiveTags()
     })
   }
 
