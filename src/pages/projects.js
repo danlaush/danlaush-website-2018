@@ -3,9 +3,13 @@ import Link from 'gatsby-link'
 import TagToggle from '../components/tag-toggle'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import slugify from 'slugify'
+
+import styles from './projects.module.css'
 
 class ProjectsPage extends React.Component {
   constructor(props) {
+    console.log('projects page props', props)
     super(props);
     try {
       const {name} = get(this, 'props.data.contentfulPerson')
@@ -14,39 +18,78 @@ class ProjectsPage extends React.Component {
 
       const projectsArray = projectsRaw.map(({node}) => node)
       const tagsArray = tagsRaw.map(({node}) => node)
+      const featuredTagsArray = tagsArray.filter(i => i.featured)
+
+      // On load, figure out what tags are active based on query params
+      const activeTagsByQueryParam = new URLSearchParams(props.history.location.search).get('tags').split(',')
 
       this.state = {
         name,
-        projectsAll: projectsArray,
-        projects: projectsArray,
-        tags: tagsArray.map(tag => {
+        tags: featuredTagsArray.map(tag => {
+          const isTagActive = this.isTagActive(tag, activeTagsByQueryParam)
+          
           return {
             id: tag.id,
             name: tag.name,
-            active: false
+            active: isTagActive
           }
-        })
+        }),
+        projectsAll: projectsArray,
+        projects: projectsArray
       }
     } catch(err) {
       throw 'oops' + err
     }
   }
 
+  componentWillMount() {
+    this.setState({
+      projects: this.filterProjectsByActiveTags()
+    })
+  }
+
+  isTagActive(tag, activeTags) {
+    const slug = slugify(tag.name, { lower: true })
+    const foundIt = activeTags.indexOf(slug) > -1
+    return foundIt
+  }
+
   handleTagClick(tagId, value) {
-    this.toggleTagActive(tagId, value, this.updateProjects)
+    this.toggleTagActive(tagId, value, this.handleTagsUpdate)
   }
 
   toggleTagActive (tagId, value, callback)  {
+    const tagsUpdated = this.state.tags.map((tag) => {
+      return tag.id === tagId 
+        ? {
+          ...tag,
+          active: value
+        }
+        : tag
+    })
+
+    
+
     this.setState({
-      tags: this.state.tags.map((tag) => {
-        return tag.id === tagId 
-          ? {
-            ...tag,
-            active: value
-          }
-          : tag
-      })
+      tags: tagsUpdated
     }, callback)
+  }
+
+  handleTagsUpdate() {
+    const activeTags = this.state.tags.filter(i => i.active)
+    const tagString = activeTags.map(i => slugify(i.name, {
+      lower: true
+    }))
+    const queryParams = new URLSearchParams(this.state.queryParams)
+
+    queryParams.set('tags', tagString)
+
+    this.props.history.push({
+      pathname: '/projects',
+      search: queryParams.toString()
+    })
+
+    this.updateProjects()
   }
 
   hasActiveTags() {
@@ -54,6 +97,22 @@ class ProjectsPage extends React.Component {
       return tag.active
     })
     return !!removeInactiveTags.length
+  }
+
+  filterProjectsByActiveTags() {
+    const { projectsAll, tags } = this.state
+
+    return projectsAll.filter(project => {
+      if(!project.tags) return
+      const filterProjectsWithoutMatchingTags = project.tags.filter(tag => {
+        const isTagInGlobalActiveTags = tags.filter(globalTag => {              
+          return tag.id === globalTag.id && globalTag.active
+        })
+        return !!isTagInGlobalActiveTags.length
+      })
+      return !!filterProjectsWithoutMatchingTags.length
+  })
+
   }
 
   updateProjects() {
@@ -110,11 +169,11 @@ class ProjectsPage extends React.Component {
 
         <aside>
           <form>
-            <h2>Tags</h2>
-            <fieldset>
+            <h2>Filter by tags</h2>
+            <fieldset className={styles.tagsContainer}>
               {this.state.tags.map(tag => {
                 return (
-                  <TagToggle key={tag.id} id={tag.id} name={tag.name} update={this.handleTagClick.bind(this)} />
+                  <TagToggle key={tag.id} active={tag.active} id={tag.id} name={tag.name} update={this.handleTagClick.bind(this)} />
                 )
               })}
             </fieldset>
@@ -141,6 +200,7 @@ export const pageQuery = graphql`
         node {
           id
           name
+          featured
         }
       }
     }
@@ -160,6 +220,7 @@ export const pageQuery = graphql`
               html
             }
           }
+          
         }
       }
     }

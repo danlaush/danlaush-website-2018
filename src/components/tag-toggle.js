@@ -4,17 +4,17 @@ class TagToggle extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      active: false,
-    }
+    // this.state = {
+    //   active: false,
+    // }
   }
 
   update() {
-    const newActive = !this.state.active
+    const newActive = !this.props.active
     this.props.update(this.props.id, newActive)
-    this.setState({
-      active: newActive
-    })
+    // this.setState({
+    //   active: newActive
+    // })
   }
 
   render() {
@@ -24,6 +24,7 @@ class TagToggle extends React.Component {
           type="checkbox"
           id={`tag-${this.props.id}`}
           name={this.props.id}
+          defaultChecked={this.props.active ? this.props.active : undefined }
           onClick={this.update.bind(this)}
         />
         {this.props.name}

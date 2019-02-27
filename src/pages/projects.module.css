@@ -1,0 +1,13 @@
+.tagsContainer {
+  max-width: 20em;
+  column-count: 2;
+}
+
+.tagsContainer label {
+  display: inline-block;
+  width: 50%;
+}
+
+.tagsContainer label:hover {
+  cursor: pointer;
+}
