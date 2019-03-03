@@ -15,7 +15,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        {children()}
+        {children}
       </Container>
     )
   }

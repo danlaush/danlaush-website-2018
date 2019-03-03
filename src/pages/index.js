@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Container from '../components/container'
 
 class RootIndex extends React.Component {
   render() {
@@ -9,7 +11,7 @@ class RootIndex extends React.Component {
     const person = get(this, 'props.data.contentfulPerson')
 
     return (
-      <div>{/*I hate this div so much. This is why we can't have nice documents*/}
+      <Container>
         <Helmet title={person.name} />
         {/* <Hero data={author.node} /> */}
         <div className="wrapper">
@@ -48,7 +50,7 @@ class RootIndex extends React.Component {
             </li>
           </ul>
         </div>
-      </div>
+      </Container>
     )
   }
 }

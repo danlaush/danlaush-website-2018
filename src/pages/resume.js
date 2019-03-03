@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Container from '../components/container'
 
 class ResumePage extends React.Component {
   render() {
@@ -9,7 +11,7 @@ class ResumePage extends React.Component {
     const roles = get(this, 'props.data.allContentfulRole.edges')
 
     return (
-      <div>
+      <Container>
         <Helmet title="Resume" />
         <h1>{name}</h1>
         <p>&laquo; <Link to={`/`}>Home</Link></p>
@@ -29,7 +31,7 @@ class ResumePage extends React.Component {
             )
           })}
         </ul>
-      </div>
+      </Container>
     )
   }
 }

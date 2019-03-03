@@ -2,6 +2,7 @@
 // import Helmet from 'react-helmet'
 // import get from 'lodash/get'
 // import Img from 'gatsby-image'
+// import { graphql } from 'gatsby'
 
 // import heroStyles from '../components/hero.module.css'
 

@@ -1,11 +1,13 @@
 import React from 'react'
+import { navigate, graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import TagToggle from '../components/tag-toggle'
+import Container from '../components/container'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import slugify from 'slugify'
-
 import styles from './projects.module.css'
+import { Location } from '@reach/router'
 
 class ProjectsPage extends React.Component {
   constructor(props) {
@@ -38,24 +40,24 @@ class ProjectsPage extends React.Component {
   }
 
   componentDidMount() {
-    let activeTags = []
-    const activeTagsByQueryParam = new URLSearchParams(this.props.history.location.search).get('tags')
-    if(activeTagsByQueryParam) {
-      activeTags = activeTagsByQueryParam.split(',')
-    }
+    // let activeTags = []
+    // const activeTagsByQueryParam = new URLSearchParams(this.props.location.search).get('tags')
+    // if(activeTagsByQueryParam) {
+    //   activeTags = activeTagsByQueryParam.split(',')
+    // }
 
-    this.setState({
-      tags: this.state.tags.map(tag => {
-        return {
-          id: tag.id,
-          name: tag.name,
-          active: activeTags.length 
-            ? this.isTagActive(tag, activeTags)
-            : false
-        }
-      }),
-      projects: this.filterProjectsByActiveTags()
-    })
+    // this.setState({
+    //   tags: this.state.tags.map(tag => {
+    //     return {
+    //       id: tag.id,
+    //       name: tag.name,
+    //       active: activeTags.length 
+    //         ? this.isTagActive(tag, activeTags)
+    //         : false
+    //     }
+    //   }),
+    //   projects: this.filterProjectsByActiveTags()
+    // })
   }
 
   isTagActive(tag, activeTags) {
@@ -103,13 +105,15 @@ class ProjectsPage extends React.Component {
     } else {
       queryParams.delete('tags')
     }
+
+    navigate(`/projects?${queryParams.toString()}`)
     
-    if(this.props.history) {
-      this.props.history.push({
-        pathname: '/projects',
-        search: queryParams.toString()
-      })
-    }
+    // if(this.props.history) {
+    //   this.props.history.push({
+    //     pathname: '/projects',
+    //     search: queryParams.toString()
+    //   })
+    // }
 
     this.updateProjects()
   }
@@ -169,11 +173,11 @@ class ProjectsPage extends React.Component {
   render() {
 
     return (
-      <div>
+      <Container>
         <Helmet title="Projects" />
         <h1>{this.state.name}</h1>
         <p>&laquo; <Link to={`/`}>Home</Link></p>
-
+        
         <aside>
           <form>
             <h2>Filter by tags</h2>
@@ -190,7 +194,7 @@ class ProjectsPage extends React.Component {
         <ul>
           {this.renderProjects()}
         </ul>
-      </div>
+      </Container>
     )
   }
 }

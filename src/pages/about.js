@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import Container from '../components/container'
+import { graphql } from 'gatsby'
 
 class AboutPage extends React.Component {
   render() {
@@ -9,13 +11,13 @@ class AboutPage extends React.Component {
     const bioHtml = person.bio.childMarkdownRemark.html
 
     return (
-      <div>
+      <Container>
         <Helmet title={`About ${person.name}`} />
         {/* <Hero data={author.node} /> */}
         <h1>{person.name}</h1>
         <p>&laquo; <Link to="/">Home</Link></p>
         <div dangerouslySetInnerHTML={{__html: bioHtml }} />
-      </div>
+      </Container>
     )
   }
 }
