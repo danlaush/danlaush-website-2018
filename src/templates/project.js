@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 // import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
+import MediaComponent from '../components/media-component'
 
 import projectStyles from './project.module.css'
 
@@ -15,22 +16,24 @@ class ProjectTemplate extends React.Component {
     return (
       <Container>
         <Helmet title={`${project.title}`} />
-        <div className="wrapper">
-          <h1 className="section-headline">{project.title}</h1>
-          <p>&laquo; <Link to={`/projects`}>Projects</Link></p>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: project.body.childMarkdownRemark.html,
-            }}
-          />
-          {project.media && <ul class={projectStyles.media}>
+        <div className={[
+          projectStyles.wrapper, 
+          project.media && projectStyles.wrapperHasMedia
+        ].join(' ')}>
+          <div className={projectStyles.contentColumn}>
+            <h1 className="section-headline">{project.title}</h1>
+            <p>&laquo; <Link to={`/projects`}>Projects</Link></p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: project.body.childMarkdownRemark.html,
+              }}
+            />
+          </div>
+          {project.media && <ul className={projectStyles.media}>
             {project.media.map(({name, media}) => {
               return (
                 <li key={name}>
-                  <img
-                    src={media.img1000.src}
-                    width={media.img1000.width/2}
-                    height={media.img1000.height/2} />
+                  <MediaComponent media={media} />
                 </li>
               )
             })}
@@ -56,12 +59,16 @@ export const pageQuery = graphql`
         name
         media {
           description
+          file {
+            contentType
+            url
+          }
           img1000: resize(width: 1000) {
             src
             width
             height
           }
-          img400: resize(width: 400) {
+          img600: resize(width: 600) {
             src
             width
             height
