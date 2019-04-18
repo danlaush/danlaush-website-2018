@@ -15,7 +15,9 @@ class ProjectTemplate extends React.Component {
 
     return (
       <Container>
-        <Helmet title={`${project.title}`} />
+        <Helmet title={`${project.title}`} htmlAttributes={
+          {"lang": "en"}
+        } />
         <div className={[
           projectStyles.wrapper, 
           project.media && projectStyles.wrapperHasMedia

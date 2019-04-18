@@ -174,7 +174,9 @@ class ProjectsPage extends React.Component {
 
     return (
       <Container>
-        <Helmet title="Projects" />
+        <Helmet title="Projects" htmlAttributes={
+          {"lang": "en"}
+        } />
         <h1>{this.state.name}</h1>
         <p>&laquo; <Link to={`/`}>Home</Link></p>
         

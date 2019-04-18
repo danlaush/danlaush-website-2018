@@ -6,6 +6,7 @@ import styles from './media-component.module.css'
 
 export default ({
     media: { 
+      description,
       file,
       img600,
       width,
@@ -18,7 +19,8 @@ export default ({
       <img
         src={img600.src}
         width={img600.width/2}
-        height={img600.height/2} />
+        height={img600.height/2}
+        alt={description} />
     )
   } else if(file.contentType === 'video/mp4') {
     return (
@@ -28,7 +30,8 @@ export default ({
           muted
           controls
           width={width}
-          height={height}>
+          height={height}
+          alt={description}>
           <source src={file.url}
             type="video/mp4" />
           Sorry, your browser doesn't support embedded videos.

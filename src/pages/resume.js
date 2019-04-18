@@ -12,7 +12,9 @@ class ResumePage extends React.Component {
 
     return (
       <Container>
-        <Helmet title="Resume" />
+        <Helmet title="Resume" htmlAttributes={
+          {"lang": "en"}
+        } />
         <h1>{name}</h1>
         <p>&laquo; <Link to={`/`}>Home</Link></p>
         <ul>

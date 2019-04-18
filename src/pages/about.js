@@ -12,7 +12,9 @@ class AboutPage extends React.Component {
 
     return (
       <Container>
-        <Helmet title={`About ${person.name}`} />
+        <Helmet title={`About ${person.name}`} htmlAttributes={
+          {"lang": "en"}
+        } />
         {/* <Hero data={author.node} /> */}
         <h1>{person.name}</h1>
         <p>&laquo; <Link to="/">Home</Link></p>

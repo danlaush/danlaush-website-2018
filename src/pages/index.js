@@ -12,7 +12,9 @@ class RootIndex extends React.Component {
 
     return (
       <Container>
-        <Helmet title={person.name} />
+        <Helmet title={person.name} htmlAttributes={
+          {"lang": "en"}
+        } />
         {/* <Hero data={author.node} /> */}
         <div className="wrapper">
           <h1>{person.name}</h1>
