@@ -11,8 +11,14 @@
 .media {
   flex-grow: 1;
   margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 0 6rem 0 3rem;
+}
+
+@media(min-width: 500px) {
+  .media {
+    padding: 0 6rem 0 3rem;
+  }
 }
 
 .media li {
