@@ -1,3 +1,25 @@
+.media {
+  /* border: 1px solid red; */
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.mediaAsset {
+  cursor: zoom-in;
+}
+
+.expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
 .video {
   position: relative;
   width: 100%;
@@ -8,15 +30,6 @@
 .video video {
   display: block;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.test {
-  background: blue;
   position: absolute;
   top: 0;
   left: 0;

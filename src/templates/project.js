@@ -35,7 +35,7 @@ class ProjectTemplate extends React.Component {
             {project.media.map(({name, media}) => {
               return (
                 <li key={name}>
-                  <MediaComponent media={media} />
+                  <MediaComponent {...media} />
                 </li>
               )
             })}
