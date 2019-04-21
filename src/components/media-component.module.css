@@ -1,3 +1,34 @@
+.mediaContainer {
+  position: relative;
+}
+
+.media {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(100, 100, 100, 0.5);
+  line-height: 0;
+}
+
+.mediaAsset {
+  cursor: zoom-in;
+}
+
+.isExpanded {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+} 
+
+.isTransitioning {
+  z-index: 3;
+}
+
 .video {
   position: relative;
   width: 100%;
@@ -8,15 +39,6 @@
 .video video {
   display: block;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.test {
-  background: blue;
   position: absolute;
   top: 0;
   left: 0;
