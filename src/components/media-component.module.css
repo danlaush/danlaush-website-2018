@@ -1,24 +1,33 @@
+.mediaContainer {
+  position: relative;
+}
+
 .media {
-  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(100, 100, 100, 0.5);
+  line-height: 0;
 }
 
 .mediaAsset {
   cursor: zoom-in;
 }
 
-.expanded {
-  position: absolute;
-  top: 0;
-  left: 0;
+.isExpanded {
+  position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 3;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 } 
+
+.isTransitioning {
+  z-index: 3;
+}
 
 .video {
   position: relative;
