@@ -6,6 +6,7 @@ import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
 import MediaComponent from '../components/media-component'
+import PageHeader from '../components/page-header'
 
 import projectStyles from './project.module.css'
 
@@ -14,32 +15,34 @@ class ProjectTemplate extends React.Component {
     const project = get(this.props, 'data.contentfulProject')
 
     return (
-      <Container>
-        <Helmet title={`${project.title}`} htmlAttributes={
-          {"lang": "en"}
-        } />
-        <div className={[
-          projectStyles.wrapper, 
-          project.media && projectStyles.wrapperHasMedia
-        ].join(' ')}>
-          <div className={projectStyles.contentColumn}>
-            <h1 className="section-headline">{project.title}</h1>
-            <p>&laquo; <Link to={`/projects`}>Projects</Link></p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: project.body.childMarkdownRemark.html,
-              }}
-            />
-          </div>
-          {project.media && <ul className={projectStyles.media}>
-            {project.media.map(({name, media}) => {
-              return (
-                <li key={name}>
-                  <MediaComponent {...media} />
-                </li>
-              )
-            })}
-          </ul>}
+      <Container hasSidebar={true}>
+        <Helmet title={`${project.title}`} htmlAttributes={{ lang: 'en' }} />
+        <PageHeader title={project.title} breadcrumb={{ url: '/projects', text: 'Projects'}} />
+        <div
+          className={[
+            projectStyles.wrapper,
+            project.media && projectStyles.wrapperHasMedia,
+          ].join(' ')}
+        >
+          {project.media && (
+            <div className={projectStyles.mediaWrapper}>
+              <ul className={projectStyles.media}>
+                {project.media.map(({ name, media }) => {
+                  return (
+                    <li key={name}>
+                      <MediaComponent {...media} />
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )}
+          <div
+            className={projectStyles.contentColumn}
+            dangerouslySetInnerHTML={{
+              __html: project.body.childMarkdownRemark.html,
+            }}
+          />
         </div>
       </Container>
     )
@@ -65,7 +68,7 @@ export const pageQuery = graphql`
             contentType
             url
           }
-          img1000: resize(width: 1000) {
+          img2000: resize(width: 2000) {
             src
             width
             height

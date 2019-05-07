@@ -11,3 +11,19 @@
 .tagsContainer label:hover {
   cursor: pointer;
 }
+
+.project {
+  margin-top: 1.5rem;
+}
+
+.projectName {
+  font-size: 1.2rem;
+}
+
+.projectDate {
+  font-weight: bold;
+}
+
+.projectTags {
+  color: #444;
+}

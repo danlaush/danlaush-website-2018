@@ -3,11 +3,11 @@ import { navigate, graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import TagToggle from '../components/tag-toggle'
 import Container from '../components/container'
+import PageHeader from '../components/page-header'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import slugify from 'slugify'
 import styles from './projects.module.css'
-import { Location } from '@reach/router'
 
 class ProjectsPage extends React.Component {
   constructor(props) {
@@ -154,15 +154,15 @@ class ProjectsPage extends React.Component {
     } else  {
       return this.state.projects.map(project => {
         return (
-          <li key={project.slug}>
-            <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+          <li key={project.slug} class={styles.project}>
+            <Link to={`/projects/${project.slug}`} className={styles.projectName}>{project.title}</Link>
             <ul>
-              <li>{project.startDate} - {project.endDate}</li>
+              <li><strong>{project.startDate} - {project.endDate}</strong></li>
               <li>
                 <div dangerouslySetInnerHTML={{__html: project.description.childMarkdownRemark.html}} />
               </li>
               {project.tags &&
-                <li>Tags: {project.tags.map(tag => tag.name).join(', ')}</li>
+                <li className={styles.projectTags}>{project.tags.map(tag => tag.name).sort().join(' / ')}</li>
               }
             </ul>
           </li>
@@ -171,14 +171,14 @@ class ProjectsPage extends React.Component {
   }
 
   render() {
+    const pageTitle = 'Projects'
 
     return (
       <Container>
-        <Helmet title="Projects" htmlAttributes={
+        <Helmet title={`${pageTitle} | ${this.state.name}`} htmlAttributes={
           {"lang": "en"}
         } />
-        <h1>{this.state.name}</h1>
-        <p>&laquo; <Link to={`/`}>Home</Link></p>
+        <PageHeader title={pageTitle} breadcrumb={{ url: '/', text: 'Home'}} />
         
         <aside>
           <form>

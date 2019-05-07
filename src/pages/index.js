@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
+import styles from './index.module.css'
 
 class RootIndex extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class RootIndex extends React.Component {
           {"lang": "en"}
         } />
         <h1>{person.name}</h1>
-        <ul>
+        <ul className={styles.list}>
           <li>{person.title}</li>
           <li>
             <Link to={`/about`}>
@@ -37,7 +38,7 @@ class RootIndex extends React.Component {
           </li>
         </ul>
         <h2>Things</h2>
-        <ul>
+        <ul className={styles.list}>
           <li>
             <Link to={`/projects`}>
               Projects

@@ -1,7 +1,11 @@
 .container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     /* border: 1px solid black; */
+}
+
+.hasSidebar {
+    /* max-width: 1200px; */
 }
 
 @media(min-width: 500px) {

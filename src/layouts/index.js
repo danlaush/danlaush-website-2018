@@ -16,7 +16,9 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Helmet/>
+        <Helmet>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Helmet>
         {children}
       </Container>
     )

@@ -1,4 +1,4 @@
-.mediaContainer {
+ .mediaContainer {
   position: relative;
 }
 
@@ -16,6 +16,8 @@
 
 .mediaAsset {
   cursor: zoom-in;
+  max-width: 100%;
+  height: auto;
 }
 
 .isExpanded {
@@ -27,6 +29,12 @@
 
 .isTransitioning {
   z-index: 3;
+}
+
+.mediaAsset {
+  cursor: zoom-in;
+  max-width: 100%;
+  height: auto;
 }
 
 .video {

@@ -44,9 +44,9 @@ export default class MediaComponent extends React.Component {
       let imageAttrs
       if (this.state.expanded) {
         imageAttrs = {
-          src: this.props.img1000.src,
-          width: this.props.img1000.width / 2,
-          height: this.props.img1000.height / 2,
+          src: this.props.img2000.src,
+          width: this.props.img2000.width / 2,
+          height: this.props.img2000.height / 2,
         }
       } else {
         imageAttrs = {
