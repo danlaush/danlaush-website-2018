@@ -182,7 +182,7 @@ class ProjectsPage extends React.Component {
         
         <aside>
           <form>
-            <h2>Filter by tags</h2>
+            <h3>Filter by tags</h3>
             <fieldset className={styles.tagsContainer}>
               {this.state.tags.map(tag => {
                 return (

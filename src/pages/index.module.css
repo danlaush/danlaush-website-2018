@@ -1,3 +1,11 @@
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.personTitle {
+  margin-top: 0.5rem;
+}
+
 .list li {
   margin: 0;
 }
