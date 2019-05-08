@@ -6,6 +6,14 @@ import { graphql } from 'gatsby'
 import Container from '../components/container'
 import PageHeader from '../components/page-header'
 import styles from './resume.module.css'
+
+const organisationTitle = (node) => {
+  if(node.url) {
+    return (<a href={node.url}>{node.organisation}</a>)
+  } else {
+    return node.organisation
+  }
+}
 class ResumePage extends React.Component {
   render() {
     const pageTitle = 'Resume'
@@ -19,31 +27,30 @@ class ResumePage extends React.Component {
           htmlAttributes={{ lang: 'en' }}
         />
         <PageHeader title={pageTitle} breadcrumb={{ url: '/', text: 'Home' }} />
-        <ul>
+        <ul className={styles.roles}>
           {roles.map(({ node }, index) => {
             return (
               <li key={index} className={styles.role}>
                 <p className={styles.roleName}>{node.entryTitle}</p>
-                <p>
-                  <strong>{node.organisation}</strong>
+                <p className={styles.roleOrganisation}>
+                  {organisationTitle(node)}
                 </p>
                 <p className={styles.roleDates}>
-                  <strong>
+                  
                     {node.startDate} - {node.endDate}
-                  </strong>
+                  
                 </p>
                 {node.skillsLearned && (
                   <div
+                    className={styles.roleDescription}
                     dangerouslySetInnerHTML={{
                       __html: node.skillsLearned.childMarkdownRemark.html,
                     }}
                   />
                 )}
                 {node.projects && 
-                  <p>
-                    <strong>Projects</strong>
-                  </p>}
-                {node.projects && 
+                  <div className={styles.roleProjects}>
+                  <h4>Projects</h4>
                   <ul>
                     {node.projects.map((project, index2) => {
                       return (
@@ -55,6 +62,7 @@ class ResumePage extends React.Component {
                       )
                     })}
                   </ul>
+                  </div>
                 }
               </li>
             )
@@ -88,6 +96,7 @@ export const pageQuery = graphql`
             title
             slug
           }
+          url
         }
       }
     }
