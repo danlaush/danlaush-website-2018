@@ -39,7 +39,8 @@ export default class MediaComponent extends React.Component {
   render() {
     if (
       this.props.file.contentType === 'image/png' ||
-      this.props.file.contentType === 'image/jpeg'
+      this.props.file.contentType === 'image/jpeg' ||
+      this.props.file.contentType === 'image/gif'
     ) {
       let imageAttrs
       if (this.state.expanded) {

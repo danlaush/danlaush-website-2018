@@ -1,0 +1,43 @@
+html {
+  --color-highlight: #7E4AD1;
+  --color-grey-dark: #2A2A2A;
+  --color-grey-mid: #888888;
+  --color-grey-light: #BABABA;
+  --bp-m: 450px;
+  --bp-l: 768px;
+  --bl-xl: 1024px;
+
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0 0 10rem;
+  font-size: 1.125rem;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  color: var(--color-grey-dark);
+}
+
+a {
+  color: var(--color-highlight);
+}
+
+.link {
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+  letter-spacing: 0.02em;
+}
+
+.sr-only {
+  /* 🙌 https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/ */
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
+}

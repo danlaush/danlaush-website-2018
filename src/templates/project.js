@@ -4,9 +4,10 @@ import get from 'lodash/get'
 import Link from 'gatsby-link'
 // import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 import Container from '../components/container'
 import MediaComponent from '../components/media-component'
-import PageHeader from '../components/page-header'
+import TwoUp from '../components/two-up'
 
 import projectStyles from './project.module.css'
 
@@ -15,36 +16,46 @@ class ProjectTemplate extends React.Component {
     const project = get(this.props, 'data.contentfulProject')
 
     return (
-      <Container hasSidebar={true}>
-        <Helmet title={`${project.title}`} htmlAttributes={{ lang: 'en' }} />
-        <PageHeader title={project.title} breadcrumb={{ url: '/projects', text: 'Projects'}} />
-        <div
-          className={[
-            projectStyles.wrapper,
-            project.media && projectStyles.wrapperHasMedia,
-          ].join(' ')}
-        >
-          {project.media && (
-            <div className={projectStyles.mediaWrapper}>
-              <ul className={projectStyles.media}>
-                {project.media.map(({ name, media }) => {
-                  return (
-                    <li key={name}>
-                      <MediaComponent {...media} />
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          )}
+      <Layout title={project.title} breadcrumb={true}>
+        <Container>
+          <Helmet title={`${project.title}`} htmlAttributes={{ lang: 'en' }} />
           <div
-            className={projectStyles.contentColumn}
+            className={projectStyles.description}
             dangerouslySetInnerHTML={{
-              __html: project.body.childMarkdownRemark.html,
+              __html: project.description.childMarkdownRemark.html,
             }}
           />
-        </div>
-      </Container>
+        </Container>
+        {/* {project.media && (
+          <div className={projectStyles.mediaWrapper}>
+            <ul className={projectStyles.media}>
+              {project.media.map(({ name, media }) => {
+                return (
+                  <li key={name}>
+                    <MediaComponent {...media} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )} */}
+        {project.contentBlocks && (
+          <Container>
+            {project.contentBlocks.map(({ title, content1 }) => {
+              return (
+                <TwoUp title={title}>
+                  <div
+                    className={projectStyles.contentBlocks}
+                    dangerouslySetInnerHTML={{
+                      __html: content1.childMarkdownRemark.html,
+                    }}
+                  />
+                </TwoUp>
+              )
+            })}
+          </Container>
+        )}
+      </Layout>
     )
   }
 }
@@ -55,9 +66,17 @@ export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
     contentfulProject(slug: { eq: $slug }) {
       title
-      body {
+      description {
         childMarkdownRemark {
           html
+        }
+      }
+      contentBlocks {
+        title
+        content1 {
+          childMarkdownRemark {
+            html
+          }
         }
       }
       media {

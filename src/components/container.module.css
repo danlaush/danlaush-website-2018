@@ -1,19 +1,5 @@
 .container {
-    max-width: 600px;
+    max-width: 64rem;
     margin: 0 auto;
-    /* border: 1px solid black; */
-}
-
-.hasSidebar {
-    /* max-width: 1200px; */
-}
-
-@media(min-width: 500px) {
-    .container {
-        margin-left: calc(5% + 15vw);
-    }
-}
-
-.container > *:first-child {
-    padding-top: 20%;
+    padding: 0 1.5rem;
 }
