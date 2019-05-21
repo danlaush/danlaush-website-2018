@@ -26,13 +26,15 @@ class ProjectTemplate extends React.Component {
             }}
           />
         </Container>
-        <Container>
-          <div
-            className={projectStyles.mediaContainer}
-          >
-            <Image fluid={project.media[0].media.img2000} />
-          </div>
-        </Container>
+        {project.media && project.media.length && (
+          <Container>
+            <div
+              className={projectStyles.mediaContainer}
+            >
+              <Image fluid={project.media[0].media.img2000} />
+            </div>
+          </Container>
+        )}
         {/* {project.media && (
 
             <ul className={projectStyles.mediaWrapper}>
