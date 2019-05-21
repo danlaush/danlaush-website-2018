@@ -9,7 +9,7 @@ import TwoUp from '../components/two-up';
 
 class AboutPage extends React.Component {
   render() {
-    const pageTitle = 'About me'
+    const pageTitle = 'About'
     const person = get(this, 'props.data.contentfulPerson')
     const bioHtml = person.bio.childMarkdownRemark.html
 

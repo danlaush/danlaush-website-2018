@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import Link from 'gatsby-link'
+import Image from 'gatsby-image'
 // import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -26,24 +26,35 @@ class ProjectTemplate extends React.Component {
             }}
           />
         </Container>
+        <Container>
+          <div
+            className={projectStyles.mediaContainer}
+          >
+            <Image fluid={project.media[0].media.img2000} />
+          </div>
+        </Container>
         {/* {project.media && (
-          <div className={projectStyles.mediaWrapper}>
-            <ul className={projectStyles.media}>
+
+            <ul className={projectStyles.mediaWrapper}>
               {project.media.map(({ name, media }) => {
                 return (
                   <li key={name}>
                     <MediaComponent {...media} />
+                    <Container>
+                      <div className={projectStyles.mediaContainer}>
+                        <img src={media.img2000.src} />
+                      </div>
+                    </Container>
                   </li>
                 )
               })}
             </ul>
-          </div>
         )} */}
         {project.contentBlocks && (
           <Container>
             {project.contentBlocks.map(({ title, content1 }) => {
               return (
-                <TwoUp title={title}>
+                <TwoUp title={title} key={title}>
                   <div
                     className={projectStyles.contentBlocks}
                     dangerouslySetInnerHTML={{
@@ -87,10 +98,13 @@ export const pageQuery = graphql`
             contentType
             url
           }
-          img2000: resize(width: 2000) {
+          img2000: fluid(maxWidth: 1000) {
+            aspectRatio
+            sizes
             src
-            width
-            height
+            srcSet
+            srcWebp
+            srcSetWebp
           }
           img600: resize(width: 600) {
             src
