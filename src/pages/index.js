@@ -67,7 +67,7 @@ class RootIndex extends React.Component {
             </ul>
           </TwoUp>
 
-          <TwoUp title="Resume">
+          <TwoUp title="Resume" pdf>
             {roles.map((
               {node: { 
                 entryTitle,

@@ -6,7 +6,7 @@ export default ({ children, title, pdf }) => (
   <section className={styles.section}>
     <div className={styles.sectionHeading}>
       <h2>{title}</h2>
-      {pdf && <a href="#">Download PDF</a>}
+      {pdf && <a href="/Laush-resume.pdf">Download PDF</a>}
     </div>
     <div className={styles.sectionContent}>
       {children}
