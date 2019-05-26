@@ -13,6 +13,9 @@ export default ({ children, hasSidebar }) => (
         <p>
           <a className="link" href="https://twitter.com/danlaush">@danlaush</a>
         </p>
+        <p>
+          <a className="link" href="https://github.com/danlaush">Github</a>
+        </p>
       </TwoUp>
     </Container>
   </footer>

@@ -26,7 +26,7 @@ class RootIndex extends React.Component {
           <Helmet title="Dan Laush | Senior front-end developer." htmlAttributes={{ lang: 'en' }}>
             <meta name="description" content="I build things for people." />
           </Helmet>
-          <TwoUp title="Projects">
+          <TwoUp title="Work">
             <ul className={styles.projectsList}>
               <li>
                 <Link to="/projects/our-watch" className="link">Our Watch</Link>
@@ -44,6 +44,12 @@ class RootIndex extends React.Component {
               <Link to="/projects/side-projects" className="link">Side projects</Link>
                 <p className={styles.projectsListMeta}>
                   JavaScript <span>2018</span>
+                </p>
+              </li>
+              <li>
+              <Link to="/projects/talks" className="link">Talks</Link>
+                <p className={styles.projectsListMeta}>
+                  Public speaking
                 </p>
               </li>
               {/* <li>
@@ -91,6 +97,8 @@ class RootIndex extends React.Component {
                 />
               </>)
             })}
+            <h3>See complete resume</h3>
+            <a href="/Laush-resume.pdf">Download full history (PDF)</a>
             {/* <div>
             <h3>Senior Front-end Developer</h3>
             <p className="role-meta">

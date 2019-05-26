@@ -19,12 +19,14 @@ class ProjectTemplate extends React.Component {
       <Layout title={project.title} breadcrumb={true}>
         <Container>
           <Helmet title={`${project.title}`} htmlAttributes={{ lang: 'en' }} />
-          <div
-            className={projectStyles.description}
-            dangerouslySetInnerHTML={{
-              __html: project.description.childMarkdownRemark.html,
-            }}
-          />
+          {project.description && 
+            <div
+              className={projectStyles.description}
+              dangerouslySetInnerHTML={{
+                __html: project.description.childMarkdownRemark.html,
+              }}
+            />
+          }
         </Container>
         {project.media && project.media.length && (
           <Container>
