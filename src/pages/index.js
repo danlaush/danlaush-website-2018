@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
   render() {
     // const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     // const person = get(this, 'props.data.contentfulPerson')
-    const headerTitle = (<>Senior front-end developer.
+    const headerTitle = (<>Front-end developer.
       <br />I build things for <span>people</span>.</>)
     const headerLink = {
       url: '/about',
@@ -23,7 +23,7 @@ class RootIndex extends React.Component {
     return (
       <Layout title={headerTitle} link={headerLink}>
         <Container>
-          <Helmet title="Dan Laush | Senior front-end developer." htmlAttributes={{ lang: 'en' }}>
+          <Helmet title="Dan Laush | Front-end developer." htmlAttributes={{ lang: 'en' }}>
             <meta name="description" content="I build things for people." />
           </Helmet>
           <TwoUp title="Work">
